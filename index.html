@@ -6,86 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root{
-      --bg-dark:#1a1a1a; /* Darker background for a more modern feel */
-      --bg-black:#000000;
-      --accent:#3498db; /* A professional blue accent */
-      --accent-light:#aed6f1;
-      --text-light:#ecf0f1;
-      --heading:#ffffff;
-      --subheading:#bdc3c7;
-      --content-max:1200px;
+      --bg-dark: #121212;
+      --bg-light: #1e1e1e;
+      --accent: #3a7bd5;
+      --text-light: #e0e0e0;
+      --heading: #ffffff;
+      --subheading: #888888;
+      --content-max: 1100px;
     }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', 'Roboto', Arial, sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg-dark);color:var(--text-light);line-height:1.6;}
+    body{background:var(--bg-dark);color:var(--text-light);line-height:1.7;}
     /* Navigation */
-    nav{width:100%;padding:1rem 0;text-align:center;position:fixed;top:0;left:0;background:rgba(26,26,26,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:999;border-bottom: 1px solid #2c3e50;}
-    nav a{color:var(--text-light);margin:0 1rem;text-decoration:none;font-weight:600;transition: color 0.3s;}
+    nav{width:100%;padding:1rem 0;text-align:center;position:fixed;top:0;left:0;background:rgba(18, 18, 18, 0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:999;border-bottom: 1px solid #282828;}
+    nav a{color:var(--text-light);margin:0 1rem;text-decoration:none;font-weight:500;transition: color 0.3s;}
     nav a:hover{color:var(--accent);}
     /* Hero */
     .hero{display:flex;flex-direction:row;align-items:center;justify-content:center;min-height:100vh;padding:6rem 1.5rem 3rem 1.5rem;max-width:var(--content-max);margin:0 auto;}
     .hero-text{flex:1;}
-    .hero-text h1{font-size:3.5rem;color:var(--heading);font-weight:700;}
+    .hero-text h1{font-size:3.5rem;color:var(--heading);font-weight:800;}
     .hero-text h1 span{color:var(--accent);}
     .hero-text p{margin-top:1rem;font-size:1.5rem;color:var(--subheading);}
-    .hero-text .typing-cursor {
-        display: inline-block;
-        width: 2px;
-        height: 1.5rem;
-        background-color: var(--accent);
-        animation: blink 1s infinite;
-    }
+    .hero-text .typing-cursor {display: inline-block; width: 3px; height: 1.5rem; background-color: var(--accent); animation: blink 1s infinite; position: relative; top: 4px;}
     @keyframes blink { 50% { opacity: 0; } }
     .hero-img{flex:1;display:flex;justify-content:center;}
-    /* IMPORTANT: Add your profile picture here */
-    .hero-img img{width:320px;height:320px;object-fit:cover;border-radius:50%;border: 5px solid var(--accent);}
+    .hero-img img{width:300px;height:300px;object-fit:cover;border-radius:50%;border: 4px solid #282828;}
     /* Section common */
     section{padding:6rem 1.5rem;}
-    .section-title { font-size: 3rem; text-align: center; margin-bottom: 3rem; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 4px; text-underline-offset: 10px;}
-    /* About */
-    .about{background:var(--bg-black);}
-    .about-inner{max-width:var(--content-max);margin:0 auto;}
-    .about p{max-width:850px;font-size:1.1rem;margin: 0 auto; text-align: center; color: var(--subheading);}
-    /* Experience */
-    .experience{background:var(--bg-dark);}
-    .timeline{position:relative;max-width:var(--content-max);margin:0 auto;}
-    .timeline::after{content:'';position:absolute;width:4px;background:#2c3e50;top:0;bottom:0;left:30px;margin-left:-2px;border-radius:2px;}
-    .entry{position:relative;padding-left:70px;margin-bottom:3rem;}
-    .entry::before{content:'';position:absolute;width:20px;height:20px;border-radius:50%;background:var(--accent);left:20px;top:4px;border: 4px solid var(--bg-dark); z-index: 1;}
-    .entry h3{margin:0;font-size:1.5rem; color: var(--heading);}
-    .entry span{display:block;font-size:0.9rem;color:var(--accent); margin: 0.25rem 0 0.5rem 0; font-weight: bold;}
-    .entry p{margin-top:0.5rem;font-size:1rem;color:var(--subheading);}
+    .section-title { font-size: 3rem; text-align: center; margin-bottom: 4rem; font-weight: 700; color: var(--heading); }
+    /* Experience Timeline */
+    .experience { background: var(--bg-light); }
+    .timeline-container{position:relative;max-width:var(--content-max);margin:0 auto;}
+    .timeline-container::after{content:'';position:absolute;width:3px;background: #282828;top:0;bottom:0;left:50%;margin-left:-1.5px;border-radius:2px;}
+    .timeline-entry{position:relative;padding:1rem 4rem;margin-bottom:2rem;width:50%;}
+    .timeline-entry:nth-child(odd){left:0;}
+    .timeline-entry:nth-child(even){left:50%;}
+    .timeline-entry::after{content:'';position:absolute;width:20px;height:20px;border-radius:50%;background:var(--accent);top:24px;right:-10px;border:4px solid var(--bg-light);z-index:1;}
+    .timeline-entry:nth-child(even)::after{left:-10px;}
+    .timeline-content{background:#282828;padding:1.5rem;border-radius:8px;position:relative;}
+    .timeline-content h3{margin:0;font-size:1.2rem;color:var(--heading);font-weight:600;}
+    .timeline-content p{font-size:0.9rem;color:var(--accent);margin:0.25rem 0 0 0;font-weight:bold;}
+    .timeline-content span{display:block;font-size:0.85rem;color:var(--subheading);margin-top:0.5rem;}
     /* Projects */
-    .projects{background:var(--bg-black);}
-    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:var(--content-max);margin:0 auto;}
-    .card{background:#2c3e50;color:var(--text-light);border-radius:12px;padding:2rem;box-shadow:0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s;}
-    .card:hover {transform: translateY(-10px); box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
-    .card .tag-container { margin-bottom: 1rem; }
-    .card .tag{display:inline-block;background:var(--accent);color:#fff;font-size:0.75rem;padding:0.3rem 0.6rem;border-radius:16px;margin-right:0.5rem; margin-bottom: 0.5rem; font-weight: 600;}
-    .card h3{font-size:1.6rem;margin-bottom:0.8rem; color: var(--heading);}
-    .card p{font-size:0.95rem;margin-bottom:1.5rem; color: var(--subheading);}
-    .card a.demo{display:inline-block;background:var(--accent);color:#fff;padding:0.6rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600; transition: background-color 0.3s;}
-    .card a.demo:hover { background-color: var(--accent-light); color: var(--bg-dark); }
+    .projects{background:var(--bg-dark);}
+    .project-grid{display:grid;grid-template-columns:1fr;gap:3rem;max-width:var(--content-max);margin:0 auto;}
+    .project-card{background:var(--bg-light);border-radius:12px;display:flex;gap:2rem;padding:2rem;overflow:hidden;border:1px solid #282828;}
+    .project-image img { width: 300px; height: 250px; object-fit: cover; border-radius: 8px; }
+    .project-info h3{font-size:1.8rem;color:var(--heading);margin-bottom:0.75rem;}
+    .project-info p{font-size:1rem;margin-bottom:1.5rem;color:var(--subheading);line-height:1.7;}
+    .project-tags{margin-bottom:1.5rem;}
+    .project-tags .tag{display:inline-block;background:#282828;color:var(--text-light);font-size:0.8rem;padding:0.4rem 0.8rem;border-radius:16px;margin-right:0.5rem;margin-bottom:0.5rem;font-weight:500;}
+    .project-links a{display:inline-block;background:var(--accent);color:#fff;padding:0.6rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600;transition: background-color 0.3s;margin-right:1rem;}
+    .project-links a.disabled{background:#444;color:#888;cursor:not-allowed;}
     /* Contact */
-    footer{background:var(--bg-dark);padding:4rem 1.5rem;text-align:center;}
-    footer h2{font-size:2.8rem;margin-bottom:1rem;}
-    footer p{color:var(--subheading);margin-bottom:1.5rem;font-size:1.1rem; max-width: 500px; margin-left: auto; margin-right: auto;}
-    .social a{margin:0 1rem;color:var(--text-light);text-decoration:none;font-weight:500;font-size:1.2rem;transition: color 0.3s;}
+    footer{background:var(--bg-dark);padding:5rem 1.5rem;text-align:center;border-top:1px solid #282828;}
+    footer h2{font-size:2rem;margin-bottom:1rem;color:var(--heading);}
+    footer p{color:var(--subheading);margin-bottom:2rem;font-size:1.1rem;max-width:500px;margin-left:auto;margin-right:auto;}
+    .social a{margin:0 1.2rem;color:var(--text-light);text-decoration:none;font-size:1.5rem;transition:color 0.3s;}
     .social a:hover { color: var(--accent); }
-    .resume-button { text-align:center; margin-top:3rem; }
-    .resume-button a { display:inline-block;background:var(--accent);color:#fff;padding:0.8rem 2rem;border-radius:8px;text-decoration:none;font-weight:600; transition: background-color 0.3s;}
-    .resume-button a:hover { background-color: #fff; color: var(--bg-dark); }
     /* Responsive */
     @media(max-width:768px){
-      .hero{flex-direction:column-reverse;text-align:center; min-height: 80vh;}
+      .hero{flex-direction:column-reverse;text-align:center;min-height:auto;}
       .hero-text h1 {font-size: 2.5rem;}
       .hero-text p {font-size: 1.2rem;}
-      .hero-img{margin-bottom:3rem;}
-      .hero-img img{width:220px;height:220px;}
-      .timeline::after{left:20px;}
-      .entry{padding-left:55px;}
-      .entry::before{left:10px;}
-      .section-title { font-size: 2.5rem; }
+      .hero-img{margin-bottom:3rem; margin-top: 2rem;}
+      .timeline-container::after{left:10px;}
+      .timeline-entry{width:100%;padding-left:3rem;padding-right:0;}
+      .timeline-entry:nth-child(even){left:0;}
+      .timeline-entry::after{left:1px;}
+      .project-card { flex-direction: column; }
+      .project-image img { width: 100%; height: auto; }
     }
   </style>
 </head>
@@ -93,7 +83,6 @@
 
 <nav>
   <a href="#hero">Home</a>
-  <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
@@ -105,139 +94,125 @@
     <p>A developer passionate about <span id="typing-text"></span><span class="typing-cursor"></span></p>
   </div>
   <div class="hero-img">
-    <img src="https://placehold.co/400x400/3498db/ffffff?text=AS" alt="Aagam Sogani">
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="about-inner">
-    <h2 class="section-title">About Me</h2>
-    <p>I am a dedicated and high-achieving student at the University of Wisconsin-Madison, pursuing a Bachelor of Science in Computer Science and Data Science with a perfect 4.0 GPA. My passion lies at the intersection of AI, software development, and human-computer interaction. I thrive on building intelligent, scalable solutions to complex problems and have a proven track record of delivering impactful results through my research and internship experiences.</p>
+    <img src="https://placehold.co/400x400/3a7bd5/ffffff?text=AS" alt="Aagam Sogani">
   </div>
 </section>
 
 <section class="experience" id="experience">
   <h2 class="section-title">Experience</h2>
-  <div class="timeline">
-    <div class="entry">
-      <h3>Undergraduate Researcher & Developer</h3>
-      <span>University of Wisconsin-Madison MAGIC Lab | May 2025 - Present</span>
-      <p>Developing the front-end and core logic for an interactive educational game as part of a prestigious NSF-funded research initiative. Collaborating with a cross-disciplinary team to design and refine educational mechanics, integrating backend services, and driving iterative improvements through user data analysis.</p>
-    </div>
-    <div class="entry">
-      <h3>AI Engineering Intern</h3>
-      <span>Shaachi | Jan 2025 - April 2025</span>
-      <p>Engineered and shipped a production-level PyTorch Llama-3 model on AWS Lambda, automating over 10,000 monthly emails and reducing copywriting workload by 30+ hours/week. I also enhanced system reliability by implementing custom DataDog monitors, slashing incident detection time by 65%.</p>
-    </div>
-    <div class="entry">
-      <h3>Software Engineering Intern</h3>
-      <span>KidzJet | Oct 2024 - Dec 2024</span>
-      <p>Architected and deployed a scalable backend system that significantly reduced customer support calls by providing real-time ride-tracking. Delivered a high-uptime (99.9%) internal dashboard using ECS and Kubernetes, which automated reporting and cut preparation time for staff by 90%.</p>
-    </div>
-    <div class="entry">
-        <h3>Software Engineering Intern</h3>
-        <span>Jain Center of Northern California | June 2024 - Aug 2024</span>
-        <p>Led the development of a Stripe-powered payment portal that increased donations by 45%. I also built a new event module with React and Firebase, boosting event RSVPs by 60%, and modernized the organization's web presence by migrating a legacy CMS to a high-performance React/Node stack.</p>
+  <div class="timeline-container">
+    <div class="timeline-entry">
+      <div class="timeline-content">
+        <h3>Undergraduate Researcher & Developer</h3>
+        <p>University of Wisconsin-Madison MAGIC Lab</p>
+        <span>May 2025 - Present</span>
       </div>
-  </div>
-  <div class="resume-button">
-    <a href="Asoganiresume4.0.pdf" target="_blank">View Full Resume</a>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-content">
+        <h3>AI Engineering Intern</h3>
+        <p>Shaachi</p>
+        <span>Jan 2025 - April 2025</span>
+      </div>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-content">
+        <h3>Software Engineering Intern</h3>
+        <p>KidzJet</p>
+        <span>Oct 2024 - Dec 2024</span>
+      </div>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-content">
+        <h3>Software Engineering Intern</h3>
+        <p>Jain Center of Northern California</p>
+        <span>June 2024 - Aug 2024</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="projects" id="projects">
   <h2 class="section-title">Projects</h2>
   <div class="project-grid">
-    <div class="card">
-      <div class="tag-container">
-        <span class="tag">Python</span>
-        <span class="tag">Gemini 1.5</span>
-        <span class="tag">Flask</span>
-        <span class="tag">Streamlit</span>
+    
+    <div class="project-card">
+      <div class="project-image">
+        <img src="https://placehold.co/600x400/1e1e1e/3a7bd5?text=THVO+Game" alt="THVO Educational Game">
       </div>
-      <h3>Developer Support Chatbot</h3>
-      <p>Built and deployed an intelligent chatbot using Google's Gemini 1.5 Flash, fine-tuned on a 5,000+ Q&A dataset to resolve developer queries. The project includes a VS Code extension and a Streamlit analytics dashboard to monitor performance.</p>
-      <a href="https://github.com/asogani23" target="_blank" class="demo">View on GitHub</a>
+      <div class="project-info">
+        <h3>THVO Educational Game</h3>
+        <p>An interactive educational game developed at UW-Madison's MAGIC Lab to teach logic and geometry through embodied learning. The game uses a webcam-based pose recognition pipeline to allow students to physically act out concepts, enhancing retention and engagement.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Computer Vision</span><span class="tag">HCI</span><span class="tag">Educational Tech</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="disabled">IP Protected</a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-        <div class="tag-container">
-          <span class="tag">React.js</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Docker</span>
-        </div>
-        <h3>Interactive Data Visualization Platform</h3>
-        <p>Designed and built a full-stack web application for visualizing complex datasets. The platform features a dynamic React front-end and a robust Node.js/Express backend API that serves data from a PostgreSQL database, all containerized with Docker.</p>
-        <a href="https://github.com/asogani23" target="_blank" class="demo">View on GitHub</a>
+
+    <div class="project-card">
+      <div class="project-image">
+        <img src="https://placehold.co/600x400/1e1e1e/3a7bd5?text=Shaachi+AI" alt="Shaachi AI Email Automation">
       </div>
-      <div class="card">
-        <div class="tag-container">
-          <span class="tag">React Native</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">Scalable Backend</span>
+      <div class="project-info">
+        <h3>AI Email Automation Engine</h3>
+        <p>Please provide the GitHub link or a summary for your work at Shaachi. I will write a detailed description here highlighting the Llama-3 model, AWS Lambda deployment, and DataDog monitoring achievements.</p>
+        <div class="project-tags">
+          <span class="tag">PyTorch</span><span class="tag">AWS Lambda</span><span class="tag">Llama-3</span><span class="tag">DataDog</span><span class="tag">GenAI</span>
         </div>
-        <h3>KidzJet Ride-Sharing App Enhancements</h3>
-        <p>Contributed to a React Native mobile application for a ride-sharing service. Focused on building and connecting features to a scalable Firebase backend, directly impacting user experience for thousands of daily riders and drivers.</p>
-        <a href="https://github.com/asogani23" target="_blank" class="demo">View on GitHub</a>
+        <div class="project-links">
+          <a href="#" class="disabled">Demo Incoming</a>
+        </div>
       </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-image">
+          <img src="https://placehold.co/600x400/1e1e1e/3a7bd5?text=Dev+Chatbot" alt="Developer Support Chatbot">
+        </div>
+        <div class="project-info">
+          <h3>Developer Support Chatbot</h3>
+          <p>Please provide the GitHub link or a summary for your chatbot project. I will write a detailed description here covering the Gemini 1.5 model, fine-tuning process, VS Code extension, and Streamlit dashboard.</p>
+          <div class="project-tags">
+            <span class="tag">Gemini 1.5</span><span class="tag">Flask</span><span class="tag">Streamlit</span><span class="tag">VS Code Ext</span>
+          </div>
+          <div class="project-links">
+            <a href="#">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
   </div>
 </section>
 
 <footer id="contact">
-  <h2>AS</h2>
-  <p>Thank you for visiting my portfolio. I'm actively seeking Software and AI Engineering internships for Summer 2026. Let's connect!</p>
+  <h2>Let's Connect</h2>
+  <p>I'm actively seeking Software and AI Engineering internships for Summer 2026. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
   <div class="social">
     <a href="https://github.com/asogani23" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/aagamsogani" target="_blank">LinkedIn</a>
     <a href="mailto:asogani@wisc.edu">Email</a>
-    <a href="tel:+14088965796">Phone</a>
   </div>
 </footer>
 
 <script>
     const typingText = document.getElementById('typing-text');
-    const phrases = [
-        'AI Engineering.',
-        'Full-Stack Development.',
-        'Data Science.',
-        'Human-Computer Interaction.'
-    ];
-    let phraseIndex = 0;
-    let letterIndex = 0;
-    let currentPhrase = '';
-    let isDeleting = false;
-
+    const phrases = ['AI Engineering.', 'Full-Stack Development.', 'Data Science.', 'Human-Computer Interaction.'];
+    let phraseIndex = 0; let letterIndex = 0; let currentPhrase = ''; let isDeleting = false;
     function type() {
         const fullPhrase = phrases[phraseIndex];
-        if (isDeleting) {
-            currentPhrase = fullPhrase.substring(0, letterIndex - 1);
-            letterIndex--;
-        } else {
-            currentPhrase = fullPhrase.substring(0, letterIndex + 1);
-            letterIndex++;
-        }
-
+        if (isDeleting) { currentPhrase = fullPhrase.substring(0, letterIndex - 1); letterIndex--; } 
+        else { currentPhrase = fullPhrase.substring(0, letterIndex + 1); letterIndex++; }
         typingText.textContent = currentPhrase;
-
-        let typeSpeed = 150;
-        if (isDeleting) {
-            typeSpeed /= 2;
-        }
-
-        if (!isDeleting && letterIndex === fullPhrase.length) {
-            typeSpeed = 2000; // Pause at end of phrase
-            isDeleting = true;
-        } else if (isDeleting && letterIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-        }
-
+        let typeSpeed = 120;
+        if (isDeleting) typeSpeed /= 2;
+        if (!isDeleting && letterIndex === fullPhrase.length) { typeSpeed = 2000; isDeleting = true; } 
+        else if (isDeleting && letterIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
         setTimeout(type, typeSpeed);
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(type, 250); // Start typing after a short delay
-    });
+    document.addEventListener('DOMContentLoaded', () => setTimeout(type, 250));
 </script>
 
 </body>
