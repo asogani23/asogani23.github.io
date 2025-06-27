@@ -261,21 +261,25 @@
 
 /* tag pills a hair larger */
 .project-tags .tag{
-  font-size: .85rem;
-  padding: .45rem .95rem;
-  background: #ededed;
-  color:#111;
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text-sub);
+  font-weight:500;
 }
+
 
 /* buttons pop with brand blue on hover */
 .project-links a{
-  background: var(--accent);
-  transition: transform .15s, background-color .3s;
+  background:var(--card-bg);
+  color:var(--accent);
+  border:1px solid var(--accent);
+  box-shadow:none;
 }
 .project-links a:hover{
-  transform: translateY(-2px);
-  background: #4893fa;
+  background:var(--accent);
+  color:#fff !important;
 }
+
 
 /* ─────────── MOBILE – keep things tidy ─────────── */
 @media(max-width:768px){
