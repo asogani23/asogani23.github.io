@@ -332,6 +332,13 @@ backdrop-filter: blur(8px);
   transform:translateY(-3px);
   box-shadow:0 6px 14px rgba(0,0,0,.24);
 }
+    .project-bullets{
+  margin: 0 0 1rem 1.15rem;
+  color:#333;
+  line-height:1.6;
+  font-size:1.05rem;
+}
+.project-bullets li{margin-bottom:.35rem;}
 
     /* Contact */
     footer{background:var(--bg-dark);padding:5rem 1.5rem;text-align:center;border-top:1px solid var(--border-color);}
@@ -447,23 +454,26 @@ backdrop-filter: blur(8px);
         <img src="https://placehold.co/600x400/1a1a1a/3a7bd5?text=Shaachi+AI" alt="AI Automated Outreach Engine">
       </div>
       <div class="project-info">
-        <h3>Shaachi Sales Outreach Platform (LLM + HubSpot & Twilio)</h3>
+        <h3>Shaachi Sales Outreach Platform (HubSpot & Twilio)</h3>
         <p>
-           I built the core backend for Shaachi, an AI platform that plugs into HubSpot (Twilio soon) to write, send, and A/B-test + learn from 10,000+ personalized emails & replies per month. Used by Okta and other companies for sales outreach.
-                  </p>
+  I built the core backend for Shaachi, an AI platform that plugs into HubSpot to
+  write, send, and A/B-test 10 000+ personalized emails & requests per month.
+  Used by Okta and other B2B clients.
+</p>
           <ul style="list-style: disc inside; margin-left: 1rem;">
 <li> Deployed Llama-3 on AWS Lambda – cut inference latency 40 % and ran fully serverless at <$15/mo. </li>
 <li> Authored the HubSpot Marketplace app (30+ installs, ⭐4.9) that bi-directionally syncs up to 2M contacts and auto-generates outreach with ICP-level insight. </li>
 <li> Wired Grafana + Datadog monitors → MTTR ↓ 65 %. </li>
-Outcome: pilot customers saw +60 % email response and +40 % SQL-to-win conversion in 6 weeks.
+<li> Outcome: pilot customers saw +60 % email response and +40 % SQL-to-win conversion in 6 weeks. </li>
         </ul>
  
         <div class="project-tags">
           <span class="tag">PyTorch</span><span class="tag">AWS Lambda</span><span class="tag">Llama-3</span><span class="tag">GenAI</span><span class="tag">Sales Tech</span>
         </div>
-        <div class="project-links">
-  <a href="https://ecosystem.hubspot.com/marketplace/apps/shaachi-1415105?eco_tools=SALES_1_1_VIDEO_CREATION" target="_blank" rel="noopener">HubSpot App</a>
-       </div>
+        <div class="project-links" style="margin-top:1rem">
+  <a href="https://ecosystem.hubspot.com/marketplace/apps/shaachi-1415105"
+     target="_blank" rel="noopener">HubSpot App</a>
+</div>
       </div>
     </div>
 
