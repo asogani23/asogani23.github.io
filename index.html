@@ -211,6 +211,7 @@ backdrop-filter: blur(8px);
   object-fit:contain;
 }
     /* ─────────── PROJECTS – NEW LAYOUT ─────────── */
+    
 .projects{
   /* pull the section forward visually */
   background: var(--bg-dark);
@@ -236,7 +237,16 @@ backdrop-filter: blur(8px);
   border: none;                        /* optional: remove dark stroke */
   box-shadow: 0 6px 14px rgba(0,0,0,.12);
 }
-
+    /* Card header bar */
+.project-card::before{
+  content:'';
+  display:block;
+  height:4px;
+  width:100%;
+  background:var(--accent);
+  border-radius:14px 14px 0 0;
+  margin:-2.75rem -3rem 2rem;
+}
 /* hide the placeholder thumbnail column */
 .project-card .project-image{ display:none; }
 
