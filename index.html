@@ -7,17 +7,16 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%233a7bd5%22></rect><text y=%22.9em%22 font-size=%2270%22 font-family=%22Arial, Helvetica, sans-serif%22 font-weight=%22bold%22 fill=%22%23fff%22 x=%2250%%22 text-anchor=%22middle%22>AS</text></svg>">
   <style>
     :root{
-      /* New Aesthetic Color Palette */
-      --bg-dark: #1a1a1a;
-      --bg-light: #242424;
-      --bg-card: #2a2a2a;
-      --accent: #3a7bd5;
-      --text-light: #f0f0f0;
-      --heading: #ffffff;
-      --subheading: #a0a0a0;
-      --border-color: #333333;
-      --content-max: 1100px;
-    }
+  --bg-dark: #141414;          /* page chrome / nav */
+  --bg-section: #fafafa;       /* light, neutral sections */
+  --card-bg: #ffffff;          /* white cards */
+  --border:   #e2e2e2;
+  --text-main:#222222;
+  --text-sub: #666666;
+  --accent:   #0b6efd;         /* keep 1 corporate blue for links */
+}
+body{background:var(--bg-dark);color:var(--text-main);}
+
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg-dark);color:var(--text-light);line-height:1.7;}
