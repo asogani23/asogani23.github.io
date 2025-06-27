@@ -237,16 +237,7 @@ backdrop-filter: blur(8px);
   border: none;                        /* optional: remove dark stroke */
   box-shadow: 0 6px 14px rgba(0,0,0,.12);
 }
-    /* Card header bar */
-.project-card::before{
-  content:'';
-  display:block;
-  height:4px;
-  width:100%;
-  background:var(--accent);
-  border-radius:14px 14px 0 0;
-  margin:-2.75rem -3rem 2rem;
-}
+  
 /* hide the placeholder thumbnail column */
 .project-card .project-image{ display:none; }
 
@@ -458,13 +449,15 @@ backdrop-filter: blur(8px);
       <div class="project-info">
         <h3>Shaachi Sales Outreach Platform (LLM + HubSpot & Twilio)</h3>
         <p>
-           I built the core backend for Shaachi, an AI platform that plugs into HubSpot (Twilio soon) to write, send, and A/B-learn from 10,000+ personalized emails & replies per month. Used by Okta and other companies for outreach. <br>
-• Deployed Llama-3 on AWS Lambda – cut inference latency 40 % and ran fully serverless at <$15/mo. <br>
-• Authored the HubSpot Marketplace app (30+ installs, ⭐4.9) that bi-directionally syncs up to 2M contacts and auto-generates outreach with ICP-level insight. <br>
-• Wired Grafana + Datadog monitors → MTTR ↓ 65 %. <br>
+           I built the core backend for Shaachi, an AI platform that plugs into HubSpot (Twilio soon) to write, send, and A/B-learn from 10,000+ personalized emails & replies per month. Used by Okta and other companies for outreach.
+                  </p>
+          <ul style="list-style: disc inside; margin-left: 1rem;">
+• Deployed Llama-3 on AWS Lambda – cut inference latency 40 % and ran fully serverless at <$15/mo. <li>
+• Authored the HubSpot Marketplace app (30+ installs, ⭐4.9) that bi-directionally syncs up to 2M contacts and auto-generates outreach with ICP-level insight. <li>
+• Wired Grafana + Datadog monitors → MTTR ↓ 65 %. <li>
 Outcome: pilot customers saw +60 % email response and +40 % SQL-to-win conversion in 6 weeks.
-          
-        </p>
+        </ul>
+ 
         <div class="project-tags">
           <span class="tag">PyTorch</span><span class="tag">AWS Lambda</span><span class="tag">Llama-3</span><span class="tag">GenAI</span><span class="tag">Sales Tech</span>
         </div>
