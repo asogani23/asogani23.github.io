@@ -279,6 +279,58 @@ backdrop-filter: blur(8px);
   .project-info h3{ font-size: 1.65rem; }
   .project-info p { font-size: 1rem; }
 }
+/* ─────────── PROJECTS – VISUAL POLISH ─────────── */
+
+/* remove underlines from any link inside the card */
+.project-card a{ text-decoration:none; }
+
+/* tidy spacing */
+.project-tags{ 
+  display:flex;                /* lays pills nicely */
+  flex-wrap:wrap;              
+  gap:.55rem;
+  margin-bottom:1.25rem;
+}
+
+/* tag-pills: softer blue on white card */
+.project-tags .tag{
+  padding:.5rem 1rem;
+  font-size:.8rem;
+  font-weight:600;
+  border-radius:40px;
+  background:#eef2ff;          /* pale indigo */
+  color:#233;
+  border:1px solid #d6ddff;
+}
+
+/* body paragraph now flows into pills → buttons */
+.project-info p{ margin-bottom:1.4rem; }
+
+/* buttons */
+.project-links{ margin-top:.3rem; }
+
+.project-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  font-size:.95rem;
+  font-weight:700;
+  letter-spacing:.3px;
+  padding:.65rem 1.6rem;
+  border-radius:50px;
+  
+  /* eye-catching gradient, forced white text */
+  background:linear-gradient(135deg,var(--accent) 0%, #5d9dfc 100%);
+  color:#fff !important;
+  
+  box-shadow:0 3px 7px rgba(0,0,0,.18);
+  transition:transform .18s cubic-bezier(.2,.8,.4,1), box-shadow .18s;
+}
+
+.project-links a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 14px rgba(0,0,0,.24);
+}
 
     /* Contact */
     footer{background:var(--bg-dark);padding:5rem 1.5rem;text-align:center;border-top:1px solid var(--border-color);}
