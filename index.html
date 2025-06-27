@@ -121,11 +121,16 @@
     .section-title { font-size: 3rem; text-align: center; margin-bottom: 4rem; font-weight: 700; color: var(--heading); }
     
     /* ---------- EXPERIENCE SECTION ---------- */
-.experience{
-  background: rgba(18, 18, 18, 0.95); /* semi-transparent dark layer over image or color */
-backdrop-filter: blur(8px);
-  padding:6rem 1.5rem;
+.experience{background:var(--bg-section);}
+.timeline-content{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  color:var(--text-main);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
 }
+.timeline-content h3{color:var(--text-main);}
+.timeline-content p{color:var(--text-sub);}
+
 
 .timeline-container{
   position:relative;
@@ -457,7 +462,7 @@ backdrop-filter: blur(8px);
         <h3>Shaachi Sales Outreach Platform (HubSpot & Twilio)</h3>
         <p>
   I built the core backend for Shaachi, an AI platform that plugs into HubSpot to
-  write, send, and A/B-test 10 000+ personalized emails & requests per month.
+  write, send, and A/B-test 10,000+ personalized emails & requests per month.
   Used by Okta and other B2B clients.
 </p>
           <ul style="list-style: disc inside; margin-left: 1rem;">
