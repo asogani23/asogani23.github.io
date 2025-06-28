@@ -288,15 +288,33 @@ body{background:var(--bg-dark);color:var(--text-main);}
 }
 
 
+/* === Sleek neutral button ================================== */
 .project-links a{
-  background:linear-gradient(135deg,#2566d4 0%,#3d7bf0 100%);
-  color:#fff!important;
-  border:none;
-  box-shadow:0 1px 4px rgba(0,0,0,.15);
+  /* Visual */
+  background:#4d4d4d;                /* mid-gray fill  */
+  color:#ffffff !important;          /* white text     */
+  border:none;                       /* no outline     */
+  border-radius:8px;                 /* soft corners   */
+  padding:.65rem 1.75rem;            /* same height as orange sample */
+  font-size:1rem;                    /* keeps current font-stack */
+  font-weight:600;                   /* subtle bold    */
+  line-height:1;                     /* vertically centre text */
+  display:inline-block;              /* respect width  */
+  box-shadow:0 2px 6px rgba(0,0,0,.15);   /* gentle depth */
+
+  /* Interaction */
+  transition:background .25s, transform .15s, box-shadow .15s;
 }
+
 .project-links a:hover{
+  background:#5c5c5c;                     /* slight lightening */
   transform:translateY(-2px);
-  box-shadow:0 4px 8px rgba(0,0,0,.25);
+  box-shadow:0 4px 10px rgba(0,0,0,.22);  /* bigger shadow     */
+}
+
+.project-links a:active{
+  transform:translateY(0);                /* press effect      */
+  box-shadow:0 2px 5px rgba(0,0,0,.18);
 }
 
 
