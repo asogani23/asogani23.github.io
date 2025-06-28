@@ -5,6 +5,12 @@
   <title>Aagam Sogani | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%233a7bd5%22></rect><text y=%22.9em%22 font-size=%2270%22 font-family=%22Arial, Helvetica, sans-serif%22 font-weight=%22bold%22 fill=%22%23fff%22 x=%2250%%22 text-anchor=%22middle%22>AS</text></svg>">
+
+
+  <link rel="preload" href="images/bg.jpeg" as="image">
+<link rel="preload" href="images/my-profile.jpg" as="image">
+
+  
   <style>
     :root{
  /* New Aesthetic Color Palette */
@@ -398,10 +404,14 @@ body{background:var(--bg-dark);color:var(--text-main);}
   <div class="hero-text">
     <h1>Hi, I'm <span>Aagam Sogani</span></h1>
     <p>A developer passionate about <span id="typing-text"></span><span class="typing-cursor"></span></p>
-  </div>
   <div class="hero-img">
-    <img src="images/my-profile.jpg" alt="Aagam Sogani">
-  </div>
+  <img  src="images/my-profile.jpg"
+        alt="Aagam Sogani"
+        width="300" height="300"
+        fetchpriority="high"  
+        decoding="async"       
+        loading="eager">       
+</div>
 </section>
 
 <section class="experience" id="experience">
@@ -528,7 +538,10 @@ body{background:var(--bg-dark);color:var(--text-main);}
   <div class="social">
     <a href="https://github.com/asogani23" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/aagamsogani" target="_blank">LinkedIn</a>
-    <a href="mailto:asogani@wisc.edu">Email</a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=asogani@wisc.edu"
+   target="_blank" rel="noopener">
+  Email
+</a>
   </div>
 </footer>
 
