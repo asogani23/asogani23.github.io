@@ -309,41 +309,50 @@
   box-shadow: 0 8px 24px rgba(0,0,0,.35);
   padding: 2rem 2.25rem;
 }
-
-/* media wrapper */
-.projects .project-media{
-  height: var(--project-media-h);
-  margin-bottom: 1.25rem;
-  background: #16181d;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 8px;
-
-  /* perfect centering */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden; /* keeps the rounded corners clean */
-}
-/* default (keep): show full image without cropping */
-.project-media img { width:100%; height:100%; object-fit: contain; }
-
-/* optional per-card: fill box, choose the focal point, and allow a touch more zoom */
-.project-media.media--cover img{
-  object-fit: cover;
-  object-position: var(--focus-x,50%) var(--focus-y,50%); /* tweak per card */
-  transform: scale(var(--zoom,1));                        /* 1 = no extra zoom */
-  transition: transform .25s ease;
+/* scroll stuff */
+/* fixed-height viewport */
+.project-media{
+  height: var(--project-media-h, 400px);
+  background:#111;
+  border:1px solid var(--border-color);
+  border-radius:12px;
+  padding:8px;
+  overflow:hidden;            /* default: no scroll */
+  display:block;
 }
 
-/* default height stays 400px unless overridden inline */
-.projects .project-media { height: var(--project-media-h, 400px); }
-
-/* optional: center-crop when you WANT a wide image to fill the box */
-.projects .project-media[data-fit="cover"] img{
-  width:100%; height:100%; object-fit:cover; object-position:center;
+/* SCROLL MODE: vertical pan inside the image */
+.project-media.media--scroll{
+  overflow-y:auto;            /* vertical scroll only */
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  touch-action:pan-y;
+  scroll-behavior:smooth;
 }
+
+.project-media.media--scroll::after{
+  content:"Scroll to view";
+  position:absolute;
+  right:16px; bottom:10px;
+  font-size:.75rem; color:#9aa4b2;
+  background:rgba(0,0,0,.35);
+  padding:.25rem .5rem; border-radius:6px;
+  pointer-events:none;
+}
+
+/* the image itself */
+.project-media img{
+  display:block;
+  width:100%;                 /* zoom to card width */
+  height:auto;                /* keep aspect ratio; tall images become taller than box */
+  border-radius:8px;
+}
+
+.project-media.media--scroll .zoom-wrap{
+  width: calc(100% * var(--zoom, 1)); /* e.g. 1.08 = +8% zoom */
+  margin: 0 auto;                      /* keep centered; hides horizontal overflow */
+}
+
 
 
 /* copy & pills on dark */
@@ -535,8 +544,9 @@
     
             <div class="project-card">
         <div class="project-media">
-          <img src="images/new_level.png" alt="THVO educational menu">
-          </div>
+  <img src="images/new_level.png" alt="THVO educational menu" loading="lazy" decoding="async">
+</div>
+
 
             <div class="project-info">
               <h3>THVO Educational Game</h3>
@@ -556,8 +566,10 @@
 
              
             <div class="project-card">
-<div class="project-media media--cover" style="--focus-x:50%; --focus-y:40%; --zoom:1.05;">
-  <img src="images/shaach.png" alt="shaachi">
+<div class="project-media media--scroll" tabindex="0" style="--zoom:1.06">
+  <div class="zoom-wrap">
+    <img src="images/shaachi (2).png" alt="Shaachi UI" loading="lazy" decoding="async">
+  </div>
 </div>
             <div class="project-info">
               <h3>Shaachi Sales Outreach Platform</h3>
@@ -607,8 +619,10 @@
 
              <div class="project-card">
             
-   <div class="project-media media--cover" style="--focus-x:50%; --focus-y:28%; --zoom:1.08;">
-  <img src="images/dashboard.png" alt="gemini-dashboard">
+   <div class="project-media media--scroll" tabindex="0" style="--zoom:1.10">
+  <div class="zoom-wrap">
+    <img src="images/dashboard.png" alt="Developer Support Dashboard" loading="lazy" decoding="async">
+  </div>
 </div>
             <div class="project-info">
               <h3>Developer-Support Chatbot</h3>
