@@ -286,87 +286,99 @@
     }
 
     /* --- 6. PROJECTS SECTION --- */
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
+    /* --- 6. PROJECTS SECTION --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); /* 2-col on desktop, 1-col on mobile */
+  gap: 2rem;
+}
 
-    .project-card {
-      background: var(--bg-card);
-      border-radius: 14px;
-      padding: 2.5rem;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 6px 20px rgba(0,0,0,.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,.3);
-    }
+.project-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 0; /* media will sit flush at top */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  overflow: hidden; /* clip media corners */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+}
 
-    .project-info h3 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-      color: var(--heading);
-      font-weight: 700;
-    }
+/* New: media block */
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 9;                 /* keeps a consistent thumbnail size */
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform .35s ease;
+}
+.project-card:hover .project-media img {
+  transform: scale(1.03);               /* subtle zoom on hover */
+}
 
-    .project-info .summary {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      color: var(--text-main);
-    }
-    
-    .project-bullets {
-        margin: 0 0 1.5rem 1.25rem;
-        color: var(--text-main);
-        font-size: 1rem;
-    }
-    
-    .project-bullets li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-      margin-bottom: 1.75rem;
-    }
+/* Text area */
+.project-info {
+  padding: 1.75rem 2rem;
+}
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: .75rem;
+  color: var(--heading);
+  font-weight: 700;
+}
+.project-info .summary {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
 
-    .project-tags .tag {
-      padding: .4rem .9rem;
-      font-size: .8rem;
-      font-weight: 600;
-      border-radius: 20px;
-      background: rgba(58, 123, 213, 0.1);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-    
-    .project-links a {
-      background: var(--accent);
-      color: #ffffff;
-      border: none;
-      border-radius: 8px;
-      padding: .75rem 1.5rem;
-      font-size: .95rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 2px 6px rgba(0,0,0,.15);
-      transition: all .25s;
-      margin-right: 0.75rem;
-    }
+.project-bullets {
+  margin: 0 0 1.25rem 1.25rem;
+  color: var(--text-main);
+  font-size: .98rem;
+}
+.project-bullets li { margin-bottom: 0.45rem; }
 
-    .project-links a:hover {
-      background: #4a8ee6;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(58, 123, 213, 0.3);
-    }
+.project-tags {
+  display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.25rem;
+}
+.project-tags .tag {
+  padding: .35rem .8rem; font-size: .8rem; font-weight: 600; border-radius: 999px;
+  background: rgba(58,123,213,.1); color: var(--accent); border: 1px solid var(--accent);
+}
+
+.project-links { margin-top: .25rem; }
+.project-links a {
+  background: var(--accent);
+  color: #fff; border: none; border-radius: 8px;
+  padding: .7rem 1.2rem; font-size: .92rem; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  transition: all .25s; margin-right: .6rem;
+}
+.project-links a:hover {
+  background: #4a8ee6; transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(58,123,213,.3);
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .project-info { padding: 1.25rem 1.25rem 1.5rem; }
+  .project-info h3 { font-size: 1.35rem; }
+  .project-info .summary, .project-bullets { font-size: 1rem; }
+}
+
 
     /* --- 7. FOOTER --- */
     footer {
@@ -522,6 +534,11 @@
         <div class="project-grid">
 
           <div class="project-card">
+            <div class="project-card">
+        <div class="project-media">
+          <img src="images/projects/new_level.png" alt="THVO educational menu">
+          </div>
+
             <div class="project-info">
               <h3>THVO Educational Game</h3>
               <p class="summary">An interactive educational game I helped develop at UW-Madison's MAGIC Lab, teaching logic and geometry. Funded and backed by the NSF, the game uses a webcam-based pose recognition pipeline, allowing students to physically act out concepts to enhance retention. Via MediaPipe, the software recognizes students’ poses and verifies steps in real time, unlocking solutions and feedback. Built for classroom deployment with role-based menus and lesson editors; telemetry streams are sent to Firebase for research.</p>
@@ -539,6 +556,11 @@
           </div>
 
           <div class="project-card">
+             <div class="project-card">
+            <div class="project-card">
+        <div class="project-media">
+          <img src="images/projects/shaachi(2).png" alt="shaachi">
+          </div>
             <div class="project-info">
               <h3>Shaachi Sales Outreach Platform</h3>
               <p class="summary">Built the core AI backend for a platform that integrates with HubSpot to write, send, and A/B test over 10,000 personalized emails monthly, used by B2B clients including Okta.</p>
@@ -586,6 +608,11 @@
 
 
           <div class="project-card">
+             <div class="project-card">
+            <div class="project-card">
+        <div class="project-media">
+          <img src="images/projects/dashboard.png" alt="gemini-dashboard">
+          </div>
             <div class="project-info">
               <h3>Developer-Support Chatbot</h3>
               <p class="summary">An AI troubleshooting assistant to answer developer questions, featuring a pluggable Flask API backend, a VS Code extension for in-IDE use, and a Streamlit dashboard for real-time analytics. Fine-tuned on a 5,000 Q&A dataset.</p>
