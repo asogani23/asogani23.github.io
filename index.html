@@ -243,95 +243,92 @@ body{background:var(--bg-dark);color:var(--text-main);}
   border-radius:4px;
   object-fit:contain;
 }
-    /* ─────────── PROJECTS – NEW LAYOUT ─────────── */
-    
-.projects{
-  /* pull the section forward visually */
-  background: var(--bg-dark);
-  padding-top: 7rem;        /* extra space under nav */
+/* ========= Projects (single-column, images not cropped) ========= */
+
+:root {
+  /* tweak this to 360–450px to taste */
+  --project-media-h: 400px;
 }
 
-/* use a single, roomy column on desktop too */
-.project-grid{
-  display: grid;
-  grid-template-columns: 1fr;          /* always one col */
-  gap: 4rem;                           /* more vertical air */
+/* always single column */
+.projects .project-grid {
+  display: flex !important;             /* override any old grid */
+  flex-direction: column !important;    /* force one column */
+  gap: 3rem;
   max-width: var(--content-max);
   margin: 0 auto;
 }
 
-/* main card */
-.project-card{
-  display: block;                      /* drop the flex row */
-  background: #f8f8f8;                 /* light card on dark bg */
+/* card */
+.projects .project-card {
+  background: #f8f8f8;
   color: #111;
   border-radius: 14px;
-  padding: 2.75rem 3rem;
-  border: none;                        /* optional: remove dark stroke */
+  padding: 2.25rem 2.5rem;
   box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  border: none;
 }
-  
-/* hide the placeholder thumbnail column */
-.project-card .project-image{ display:none; }
 
-/* copy tweaks */
-.project-info h3{
-  font-size: 2.1rem;
-  margin-bottom: 1.1rem;
+/* image block: uniform box, full screenshot visible */
+.projects .project-image {
+  height: var(--project-media-h);
+  margin-bottom: 1.25rem;
+  background: #111;                        /* neutral background behind letterboxing */
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.projects .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                      /* never crop; show the whole screenshot */
+  display: block;
+  border-radius: 8px;
+}
+
+/* copy */
+.projects .project-info h3 {
+  font-size: 2rem;
+  margin-bottom: .9rem;
   color: #000;
 }
-.project-info p{
-  font-size: 1.15rem;
-  line-height: 1.75;
-  margin-bottom: 1.75rem;
+.projects .project-info p {
+  font-size: 1.08rem;
+  line-height: 1.7;
   color: #333;
 }
 
-.project-tags .tag{
-  background:#eef4ff;          /* very pale blue */
-  color:#114080;
-  border:1px solid #d4e2ff;
+.projects .project-tags {
+  display: flex; flex-wrap: wrap; gap: .55rem; margin: 1rem 0 1.25rem;
+}
+.projects .project-tags .tag {
+  padding: .45rem .9rem; font-size: .8rem; font-weight: 600;
+  border-radius: 20px; background: #eef2ff; color: #233; border: 1px solid #d6ddff;
 }
 
+.projects .project-bullets { margin: 0 0 1rem 1.15rem; color: #333; line-height: 1.6; font-size: 1.02rem; }
 
-/* === Sleek neutral button ================================== */
-.project-links a{
-  /* Visual */
-  background:#4d4d4d;                /* mid-gray fill  */
-  color:#ffffff !important;          /* white text     */
-  border:none;                       /* no outline     */
-  border-radius:8px;                 /* soft corners   */
-  padding:.65rem 1.75rem;            /* same height as orange sample */
-  font-size:1rem;                    /* keeps current font-stack */
-  font-weight:600;                   /* subtle bold    */
-  line-height:1;                     /* vertically centre text */
-  display:inline-block;              /* respect width  */
-  box-shadow:0 2px 6px rgba(0,0,0,.15);   /* gentle depth */
-
-  /* Interaction */
-  transition:background .25s, transform .15s, box-shadow .15s;
+/* buttons */
+.projects .project-links a{
+  background:#4d4d4d;color:#fff;border:none;border-radius:8px;
+  padding:.65rem 1.4rem;font-weight:600;text-decoration:none;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);transition:background .25s,transform .15s;
 }
+.projects .project-links a:hover{ background:#5c5c5c; transform: translateY(-2px); }
 
-.project-links a:hover{
-  background:#5c5c5c;                     /* slight lightening */
-  transform:translateY(-2px);
-  box-shadow:0 4px 10px rgba(0,0,0,.22);  /* bigger shadow     */
+/* mobile: shorter media box so cards don’t dominate */
+@media (max-width: 768px){
+  :root { --project-media-h: 260px; }
+  .projects .project-card { padding: 1.75rem; }
+  .projects .project-info h3 { font-size: 1.55rem; }
 }
+    
 
-.project-links a:active{
-  transform:translateY(0);                /* press effect      */
-  box-shadow:0 2px 5px rgba(0,0,0,.18);
-}
-
-
-/* ─────────── MOBILE – keep things tidy ─────────── */
-@media(max-width:768px){
-  .project-card{
-    padding: 2rem 1.75rem;
-  }
-  .project-info h3{ font-size: 1.65rem; }
-  .project-info p { font-size: 1rem; }
-}
 /* ─────────── PROJECTS – VISUAL POLISH ─────────── */
 
 /* remove underlines from any link inside the card */
