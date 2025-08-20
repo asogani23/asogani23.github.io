@@ -329,14 +329,24 @@
 
 /* key: give the image explicit width & height so object-fit works */
 .projects .project-media img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;   /* show the whole image, no crop */
-  object-position: center center;
-  display: block;
-  border-radius: 8px;
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;         /* default: no crop */
+  object-position:center;     /* centers tall images */
+  display:block;
+  border-radius:8px;
 }
 
+
+/* default height stays 400px unless overridden inline */
+.projects .project-media { height: var(--project-media-h, 400px); }
+
+/* optional: center-crop when you WANT a wide image to fill the box */
+.projects .project-media[data-fit="cover"] img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+}
 
 
 /* copy & pills on dark */
@@ -549,9 +559,9 @@
 
              
             <div class="project-card">
-        <div class="project-media">
-          <img src="images/shaachi (2).png" alt="shaachi">
-          </div>
+        <div class="project-media" style="--project-media-h:520px">
+  <img src="images/shaachi (2).png" alt="shaachi">
+</div>
             <div class="project-info">
               <h3>Shaachi Sales Outreach Platform</h3>
               <p class="summary">Built the core AI backend for a platform that integrates with HubSpot to write, send, and A/B test over 10,000 personalized emails monthly, used by B2B clients including Okta.</p>
@@ -600,9 +610,9 @@
 
              <div class="project-card">
             
-        <div class="project-media">
-          <img src="images/dashboard.png" alt="gemini-dashboard">
-          </div>
+       <div class="project-media" style="--project-media-h:520px">
+  <img src="images/dashboard.png" alt="gemini-dashboard">
+</div>
             <div class="project-info">
               <h3>Developer-Support Chatbot</h3>
               <p class="summary">A Gemini powered, AI troubleshooting assistant to answer developer questions, featuring a pluggable Flask API backend, a VS Code extension for in-IDE use, and a Streamlit dashboard for real-time analytics. Gemini model fine-tuned on a 5,000 Q&A dataset.</p>
