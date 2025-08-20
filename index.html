@@ -288,64 +288,78 @@
     /* --- 6. PROJECTS SECTION --- */
   /* ========= Projects (single-column, images not cropped) ========= */
 
-/* put this in your main :root with the other vars */
+/* ========= Projects (single-column, dark theme, images not cropped) ========= */
+
+/* height of the media box; tweak 360–440px to taste */
 :root { --project-media-h: 400px; }
 
-/* always single column */
 .projects .project-grid{
   display:flex !important;
   flex-direction:column !important;
   gap:3rem;
-  max-width:var(--content-max-width);   /* <-- correct var name */
+  max-width:var(--content-max-width);
   margin:0 auto;
 }
 
-/* card */
 .projects .project-card{
-  background:#f8f8f8;
-  color:#111;
-  border-radius:14px;
-  padding:2.25rem 2.5rem;
-  box-shadow:0 6px 14px rgba(0,0,0,.12);
-  border:none;
+  background: var(--bg-card);            /* dark card */
+  color: var(--text-main);
+  border: 1px solid var(--border-color); /* subtle outline */
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  padding: 2rem 2.25rem;
 }
 
-/* image block: support both class names (.project-media | .project-image) */
-.projects .project-media,
-.projects .project-image{
-  height:var(--project-media-h);
-  margin-bottom:1.25rem;
-  background:#111;
-  border:1px solid #e2e2e2;
-  border-radius:12px;
-  padding:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+/* uniform media box; centers any aspect ratio WITHOUT cropping */
+.projects .project-media{
+  height: var(--project-media-h);
+  margin-bottom: 1.25rem;
+  background: #16181d;                   /* slate to match hero vibe */
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 8px;
+  display: grid;                          /* easy centering */
+  place-items: center;
+  overflow: hidden;                       /* no scrollbars ever */
 }
-.projects .project-media img,
-.projects .project-image img{
-  width:100%;
-  height:100%;
-  object-fit:contain;    /* never crop */
-  border-radius:8px;
-  display:block;
+.projects .project-media img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;                            /* important: avoid forced stretch */
+  height: auto;
+  object-fit: contain;                    /* show whole screenshot */
+  border-radius: 8px;
+  display: block;
 }
 
-/* copy */
-.projects .project-info h3{font-size:2rem;margin-bottom:.9rem;color:#000;}
-.projects .project-info p{font-size:1.08rem;line-height:1.7;color:#333;}
-.projects .project-bullets{margin:0 0 1rem 1.15rem;color:#333;line-height:1.6;font-size:1.02rem;}
-.projects .project-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0 1.25rem;}
-.projects .project-tags .tag{padding:.45rem .9rem;font-size:.8rem;font-weight:600;border-radius:20px;background:#eef2ff;color:#233;border:1px solid #d6ddff;}
-.projects .project-links a{background:#4d4d4d;color:#fff;border:none;border-radius:8px;padding:.65rem 1.4rem;font-weight:600;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:background .25s,transform .15s;}
-.projects .project-links a:hover{background:#5c5c5c;transform:translateY(-2px);}
+/* copy & pills on dark */
+.projects .project-info h3{ color: var(--heading); font-size: 1.9rem; margin-bottom: .8rem; }
+.projects .project-info p{ color: var(--text-main); font-size: 1.06rem; line-height: 1.7; }
+.projects .project-bullets{ color: var(--text-main); margin: 0 0 1rem 1.15rem; }
+.projects .project-tags{ display:flex; flex-wrap:wrap; gap:.55rem; margin:1rem 0 1.25rem; }
+.projects .project-tags .tag{
+  padding:.45rem .9rem; font-size:.8rem; font-weight:600; border-radius:999px;
+  background: rgba(58,123,213,.12); color: var(--accent); border: 1px solid rgba(58,123,213,.35);
+}
 
-@media(max-width:768px){
-  :root{ --project-media-h:260px; }
-  .projects .project-card{padding:1.75rem;}
-  .projects .project-info h3{font-size:1.55rem;}
+/* accent buttons that pop but match palette */
+.projects .project-links a{
+  background: var(--accent);
+  color:#fff; border:none; border-radius:8px;
+  padding:.65rem 1.4rem; font-weight:600; text-decoration:none;
+  box-shadow:0 4px 12px rgba(58,123,213,.35);
+  transition: transform .15s, box-shadow .15s, filter .2s;
+}
+.projects .project-links a:hover{
+  transform: translateY(-2px);
+  box-shadow:0 8px 18px rgba(58,123,213,.45);
+  filter: brightness(1.06);
+}
+
+@media (max-width:768px){
+  :root{ --project-media-h: 260px; }
+  .projects .project-card{ padding: 1.5rem; }
+  .projects .project-info h3{ font-size: 1.55rem; }
 }
 
 
@@ -584,7 +598,7 @@
           </div>
             <div class="project-info">
               <h3>Developer-Support Chatbot</h3>
-              <p class="summary">An AI troubleshooting assistant to answer developer questions, featuring a pluggable Flask API backend, a VS Code extension for in-IDE use, and a Streamlit dashboard for real-time analytics. Fine-tuned on a 5,000 Q&A dataset.</p>
+              <p class="summary">A Gemini powered, AI troubleshooting assistant to answer developer questions, featuring a pluggable Flask API backend, a VS Code extension for in-IDE use, and a Streamlit dashboard for real-time analytics. Gemini model fine-tuned on a 5,000 Q&A dataset.</p>
               <div class="project-tags">
                 <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Gemini 1.5</span><span class="tag">Streamlit</span><span class="tag">VS Code Ext</span>
               </div>
