@@ -326,19 +326,16 @@
 
   overflow: hidden; /* keeps the rounded corners clean */
 }
+/* default (keep): show full image without cropping */
+.project-media img { width:100%; height:100%; object-fit: contain; }
 
-/* key: give the image explicit width & height so object-fit works */
-.projects .project-media img{
-  max-width:100%;
-  max-height:100%;
-  width:auto;
-  height:auto;
-  object-fit:contain;         /* default: no crop */
-  object-position:center;     /* centers tall images */
-  display:block;
-  border-radius:8px;
+/* optional per-card: fill box, choose the focal point, and allow a touch more zoom */
+.project-media.media--cover img{
+  object-fit: cover;
+  object-position: var(--focus-x,50%) var(--focus-y,50%); /* tweak per card */
+  transform: scale(var(--zoom,1));                        /* 1 = no extra zoom */
+  transition: transform .25s ease;
 }
-
 
 /* default height stays 400px unless overridden inline */
 .projects .project-media { height: var(--project-media-h, 400px); }
@@ -559,7 +556,7 @@
 
              
             <div class="project-card">
-        <div class="project-media" style="--project-media-h:520px">
+<div class="project-media media--cover" style="--focus-x:50%; --focus-y:40%; --zoom:1.05;">
   <img src="images/shaach.png" alt="shaachi">
 </div>
             <div class="project-info">
@@ -610,7 +607,7 @@
 
              <div class="project-card">
             
-       <div class="project-media" style="--project-media-h:520px">
+   <div class="project-media media--cover" style="--focus-x:50%; --focus-y:28%; --zoom:1.08;">
   <img src="images/dashboard.png" alt="gemini-dashboard">
 </div>
             <div class="project-info">
