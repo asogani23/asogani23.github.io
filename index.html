@@ -309,6 +309,12 @@
   box-shadow: 0 8px 24px rgba(0,0,0,.35);
   padding: 2rem 2.25rem;
 }
+
+.project-media .zoom-wrap{
+  width: calc(100% * var(--zoom, 1));
+  margin: 0 auto;  /* keeps the image centered when zoomed out */
+}
+
 /* scroll stuff */
 /* fixed-height viewport */
 .project-media{
@@ -543,8 +549,10 @@
 
     
             <div class="project-card">
-        <div class="project-media">
-  <img src="images/new_level.png" alt="THVO educational menu" loading="lazy" decoding="async">
+        <div class="project-media" style="--zoom:.96">
+  <div class="zoom-wrap">
+    <img src="images/new_level.png" alt="THVO educational menu" loading="lazy" decoding="async">
+  </div>
 </div>
 
 
@@ -566,7 +574,7 @@
 
              
             <div class="project-card">
-<div class="project-media media--scroll" tabindex="0" style="--zoom:1.06">
+<div class="project-media media--scroll" tabindex="0" style="--zoom:.98">
   <div class="zoom-wrap">
     <img src="images/shaachi (2).png" alt="Shaachi UI" loading="lazy" decoding="async">
   </div>
