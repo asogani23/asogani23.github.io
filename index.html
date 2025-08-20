@@ -288,87 +288,64 @@
     /* --- 6. PROJECTS SECTION --- */
   /* ========= Projects (single-column, images not cropped) ========= */
 
-:root {
-  /* tweak this to 360–450px to taste */
-  --project-media-h: 400px;
-}
+/* put this in your main :root with the other vars */
+:root { --project-media-h: 400px; }
 
 /* always single column */
-.projects .project-grid {
-  display: flex !important;             /* override any old grid */
-  flex-direction: column !important;    /* force one column */
-  gap: 3rem;
-  max-width: var(--content-max);
-  margin: 0 auto;
+.projects .project-grid{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3rem;
+  max-width:var(--content-max-width);   /* <-- correct var name */
+  margin:0 auto;
 }
 
 /* card */
-.projects .project-card {
-  background: #f8f8f8;
-  color: #111;
-  border-radius: 14px;
-  padding: 2.25rem 2.5rem;
-  box-shadow: 0 6px 14px rgba(0,0,0,.12);
-  border: none;
+.projects .project-card{
+  background:#f8f8f8;
+  color:#111;
+  border-radius:14px;
+  padding:2.25rem 2.5rem;
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+  border:none;
 }
 
-/* image block: uniform box, full screenshot visible */
-.projects .project-image {
-  height: var(--project-media-h);
-  margin-bottom: 1.25rem;
-  background: #111;                        /* neutral background behind letterboxing */
-  border: 1px solid #e2e2e2;
-  border-radius: 12px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* image block: support both class names (.project-media | .project-image) */
+.projects .project-media,
+.projects .project-image{
+  height:var(--project-media-h);
+  margin-bottom:1.25rem;
+  background:#111;
+  border:1px solid #e2e2e2;
+  border-radius:12px;
+  padding:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
-
-.projects .project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;                      /* never crop; show the whole screenshot */
-  display: block;
-  border-radius: 8px;
+.projects .project-media img,
+.projects .project-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;    /* never crop */
+  border-radius:8px;
+  display:block;
 }
 
 /* copy */
-.projects .project-info h3 {
-  font-size: 2rem;
-  margin-bottom: .9rem;
-  color: #000;
-}
-.projects .project-info p {
-  font-size: 1.08rem;
-  line-height: 1.7;
-  color: #333;
-}
+.projects .project-info h3{font-size:2rem;margin-bottom:.9rem;color:#000;}
+.projects .project-info p{font-size:1.08rem;line-height:1.7;color:#333;}
+.projects .project-bullets{margin:0 0 1rem 1.15rem;color:#333;line-height:1.6;font-size:1.02rem;}
+.projects .project-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0 1.25rem;}
+.projects .project-tags .tag{padding:.45rem .9rem;font-size:.8rem;font-weight:600;border-radius:20px;background:#eef2ff;color:#233;border:1px solid #d6ddff;}
+.projects .project-links a{background:#4d4d4d;color:#fff;border:none;border-radius:8px;padding:.65rem 1.4rem;font-weight:600;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:background .25s,transform .15s;}
+.projects .project-links a:hover{background:#5c5c5c;transform:translateY(-2px);}
 
-.projects .project-tags {
-  display: flex; flex-wrap: wrap; gap: .55rem; margin: 1rem 0 1.25rem;
-}
-.projects .project-tags .tag {
-  padding: .45rem .9rem; font-size: .8rem; font-weight: 600;
-  border-radius: 20px; background: #eef2ff; color: #233; border: 1px solid #d6ddff;
-}
-
-.projects .project-bullets { margin: 0 0 1rem 1.15rem; color: #333; line-height: 1.6; font-size: 1.02rem; }
-
-/* buttons */
-.projects .project-links a{
-  background:#4d4d4d;color:#fff;border:none;border-radius:8px;
-  padding:.65rem 1.4rem;font-weight:600;text-decoration:none;
-  box-shadow:0 2px 6px rgba(0,0,0,.15);transition:background .25s,transform .15s;
-}
-.projects .project-links a:hover{ background:#5c5c5c; transform: translateY(-2px); }
-
-/* mobile: shorter media box so cards don’t dominate */
-@media (max-width: 768px){
-  :root { --project-media-h: 260px; }
-  .projects .project-card { padding: 1.75rem; }
-  .projects .project-info h3 { font-size: 1.55rem; }
+@media(max-width:768px){
+  :root{ --project-media-h:260px; }
+  .projects .project-card{padding:1.75rem;}
+  .projects .project-info h3{font-size:1.55rem;}
 }
 
 
@@ -549,7 +526,6 @@
             </div>
           </div>
 
-          <div class="project-card">
              
             <div class="project-card">
         <div class="project-media">
@@ -601,7 +577,6 @@
 </div>
 
 
-          <div class="project-card">
              <div class="project-card">
             
         <div class="project-media">
