@@ -310,15 +310,21 @@
 .project-media {
   background: var(--bg-light);
   border-bottom: 1px solid var(--border-color);
-  padding: 0.5rem;             /* adds breathing room */
-  text-align: center;          /* centers narrower screenshots */
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;         /* uniform box height */
+  overflow: hidden;      /* prevents overflow */
 }
 
 .project-media img {
-  max-height: 350px;
-  width: auto;
-  margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;   /* shows whole screenshot */
+  border-radius: 8px;
 }
+
 
 
 
