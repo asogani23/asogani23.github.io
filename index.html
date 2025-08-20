@@ -310,27 +310,33 @@
   padding: 2rem 2.25rem;
 }
 
-/* PERFECT FIT — no cropping, no scrollbars, any aspect ratio */
-.projects .project-media {
+/* media wrapper */
+.projects .project-media{
   height: var(--project-media-h);
   margin-bottom: 1.25rem;
   background: #16181d;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 8px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
+
+  /* perfect centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden; /* keeps the rounded corners clean */
 }
 
-.projects .project-media img {
+/* key: give the image explicit width & height so object-fit works */
+.projects .project-media img{
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;   /* show the whole screenshot */
-  object-position: center center;   /* keep it centered */
-  display: block;                   /* kill inline gap */
+  object-fit: contain !important;   /* show the whole image, no crop */
+  object-position: center center;
+  display: block;
   border-radius: 8px;
 }
+
 
 
 /* copy & pills on dark */
